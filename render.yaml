@@ -1,0 +1,13 @@
+# plan: free — это $0. Не меняйте на starter: starter стоит $7 в месяц.
+services:
+  - type: web
+    name: spp4-slither
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "22"

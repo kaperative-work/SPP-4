@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex">
+  <title>SLITHER LAB — лабораторная №4</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body data-mode="menu" data-net="connecting">
+  <canvas id="view"></canvas>
+  <div id="vignette"></div>
+
+  <div id="hud">
+    <section id="stats" class="panel">
+      <p><span>Длина</span><strong id="stat-length">0</strong></p>
+      <p><span>Масса</span><strong id="stat-mass">0</strong></p>
+      <p><span>Еда</span><strong id="stat-food">0</strong></p>
+      <p><span>Победы</span><strong id="stat-wins">0</strong></p>
+      <p><span>Место</span><strong id="stat-rank">—</strong></p>
+    </section>
+
+    <div id="netpill">
+      <i></i>
+      <span id="net-label">подключение</span>
+      <em id="net-rtt"></em>
+    </div>
+
+    <div id="feed"></div>
+
+    <section id="board" class="panel">
+      <div class="tabs">
+        <button type="button" id="tab-live" class="on">Сейчас</button>
+        <button type="button" id="tab-records">Рекорды</button>
+      </div>
+      <ol id="board-list"></ol>
+    </section>
+
+    <section id="journal" class="panel">
+      <header>
+        <h2>Конфликты</h2>
+        <strong id="conflict-count">0</strong>
+      </header>
+      <p class="sub">на сервере всего: <span id="conflict-server">0</span></p>
+      <ol id="log-list"></ol>
+      <button type="button" id="stale-btn">Заявка со старой версией</button>
+    </section>
+
+    <p id="hint"></p>
+    <button type="button" id="boost">Ускорение</button>
+  </div>
+
+  <div id="reconnect">
+    <div class="card">
+      <h2 id="reconnect-title">Переподключение</h2>
+      <p id="reconnect-detail"></p>
+      <button type="button" id="reconnect-now">Переподключить сейчас</button>
+    </div>
+  </div>
+
+  <div id="death">
+    <div class="card">
+      <h2 id="death-title">Змейка уничтожена</h2>
+      <p id="death-reason"></p>
+      <p id="death-stats"></p>
+      <button type="button" id="respawn-btn">Заново</button>
+    </div>
+  </div>
+
+  <div id="menu">
+    <form id="join-form" class="card">
+      <p class="eyebrow">Лабораторная №4 · WebSocket</p>
+      <h1>SLITHER <span>LAB</span></h1>
+      <p class="lead">Арена на авторитетном сервере. Позицию считает сервер, клиент только плавно её рисует.</p>
+      <label for="nick">Ник</label>
+      <input id="nick" name="nick" maxlength="16" autocomplete="nickname" placeholder="например, Аня" required>
+      <p class="label">Цвет</p>
+      <div id="colors"></div>
+      <button type="submit" id="play-btn">Играть</button>
+      <p id="menu-error" role="alert"></p>
+      <p id="menu-net">Подключение к серверу…</p>
+      <ul class="help">
+        <li>Мышь или A / D — поворот</li>
+        <li>ЛКМ, пробел или кнопка — ускорение</li>
+        <li>B рядом с маяком — захват общей цели</li>
+      </ul>
+      <h2>Таблица рекордов</h2>
+      <ol id="menu-records"></ol>
+    </form>
+  </div>
+
+  <div id="toasts"></div>
+
+  <script src="/shared/protocol.js"></script>
+  <script src="/js/render.js"></script>
+  <script src="/js/net.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "spp4-slither",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Лабораторная №4: многопользовательская игра в реальном времени в стиле Slither.io",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "check": "node scripts/smoke.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "ws": "^8.18.3"
+  }
+}
